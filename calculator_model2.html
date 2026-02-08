@@ -1,0 +1,199 @@
+<body></body>
+<html>
+<head>
+<link>
+
+</head>
+</html>
+<script>
+let value = 0
+let num_holder = ''
+let active = true
+let result = '' 
+let past_value = 0
+function cal(user_input,user_value){
+if(user_input === 'num_7'||user_input === 'num_8'||user_input === 'num_9'
+||user_input === 'num_4'||user_input === 'num_5'||user_input === 'num_6'
+||user_input === 'num_1'||user_input === 'num_2'||user_input === 'num_3' ||user_input === 'num_0'){
+ num_holder = num_holder.concat(user_value)
+document.getElementById('display').innerHTML = num_holder
+}
+else if (user_input === "operation_add"||user_input === "operation_sub"||user_input === "operation_multiply"
+||user_input === "operation_div" ){
+num_holder= num_holder.concat("  ", user_value," ")
+document.getElementById('display').innerHTML = num_holder
+}
+else if (user_input=== 'operation_equal'){
+num_holder = num_holder.replaceAll('X','*')
+num_holder = num_holder.replaceAll('sin','Math.sin')
+num_holder = num_holder.replaceAll('cos','Math.cos')
+num_holder = num_holder.replaceAll('tan','Math.tan')
+num_holder = num_holder.replaceAll('Log','Math.log')
+num_holder = num_holder.replaceAll('ln','Math.log')
+num_holder = num_holder.replaceAll('Root' , 'Math.sqrt')
+
+num_holder = eval(num_holder)
+let finial_result = num_holder
+past_value = finial_result
+
+document.getElementById('display').innerHTML=finial_result
+num_holder = ''
+
+}
+
+
+else if (user_input === "DEL") {
+  num_holder = num_holder.slice(0, -1);
+  document.getElementById('display').innerHTML = num_holder;
+}
+else if(user_input ==='Ans'){
+ num_holder = num_holder.concat("",past_value,"") 
+ document.getElementById('display').innerHTML = num_holder;
+ 
+}
+else if(user_input==='ON'){
+num_holder = ""
+document.getElementById('display').innerHTML = num_holder;
+
+}
+else if (user_input==='decimal'){
+  num_holder= num_holder.concat("", user_value,"")
+  document.getElementById('display').innerHTML = num_holder;
+}
+else if(user_input==="POWER_2" ){
+num_holder = num_holder.concat(user_value)
+document.getElementById('display').innerHTML = num_holder;
+
+}
+else if(user_input==='POWER'){
+  num_holder=num_holder.concat(user_value)
+  document.getElementById('display').innerHTML = num_holder;
+}
+else if(user_input==='Sin'){
+num_holder= num_holder.concat(" ",user_value , "(")
+document.getElementById('display').innerHTML = num_holder;
+}
+else if(user_input==='Cos'){
+num_holder= num_holder.concat(user_value , "(")
+document.getElementById('display').innerHTML = num_holder;
+}
+else if(user_input==='Tan'){
+num_holder= num_holder.concat(user_value , "(")
+document.getElementById('display').innerHTML = num_holder;
+}
+else if(user_input==="bracket_left"){
+num_holder= num_holder.concat(user_value)
+document.getElementById('display').innerHTML = num_holder;
+
+}
+else if(user_input==="bracket_right"){
+num_holder= num_holder.concat(user_value)
+document.getElementById('display').innerHTML = num_holder;
+}
+else if(user_input=== 'LOG'){
+num_holder= num_holder.concat(user_value , "(")
+document.getElementById('display').innerHTML = num_holder; 
+}
+else if(user_input==='ln'){
+num_holder= num_holder.concat(user_value , "(")
+document.getElementById('display').innerHTML = num_holder; 
+
+}
+else if(user_input==='Root'){
+ num_holder= num_holder.concat(user_value , "(")
+document.getElementById('display').innerHTML = num_holder; 
+}
+else if(user_input==='fraction'){
+ num_holder= num_holder.concat( "(")
+document.getElementById('display').innerHTML = num_holder; 
+  
+}
+else if(user_input==='index_neg'){
+  num_holder= num_holder.concat(user_value)
+document.getElementById('display').innerHTML = num_holder;  
+}
+else if(user_input==='neg'){
+num_holder = num_holder.concat("(","-")
+document.getElementById('display').innerHTML = num_holder; 
+}
+
+
+}
+</script>
+<table style="width: 400px;height: 800px; border: solid; border-bottom-left-radius: 60px; border-top-left-radius:40px ;border-bottom-right-radius:60px ;border-top-right-radius:40px ; background-color: black;">
+<tr><td>
+<button style="position: absolute;   top: 10%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: 150px;width: 220px;height: 70px; background-color: gray; border: solid;"></button>
+<p style="position: absolute;   top: 2%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: 20px;width: 50px;height: 30px; font-size: 30px; color: white;">CASIO</p>
+<p style="position: absolute;   top: 10%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: 20px;width: 150px;height: 40px; color: white;">fx-991EX</p>
+<p style="position: absolute;   top: 10%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: 18px;width: 150px;height: 10px;color: white;">CLASSWIZ</p>
+</td></tr>
+<tr><td><button  id="display" style="position: absolute;   top: 25%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: 18px;width: 350px;height: 100px;color: white;background-color: lightslategrey;border: solid lightslategray; font-size: xx-large;"></button></td></tr>
+<tr><td><hr style="position: absolute;   top: 30%; -ms-transform: translateY(30%); transform: translateY(-70%);width: 390px;color: white" ></td></tr>
+<tr><td style="position: absolute;   top: 34.5%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: 157px; width: 50px; height: 30px;color: white;transform: rotate(90deg);"><button>&#8249;</button></td>
+<th><button onclick="cal(this.id , this.value)" id="bracket_right" value="(" style="position: absolute;   top: 35%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: -97px;width: 50px;height: 30px;color: white;background-color: black;">(</button></th>
+<th><button onclick="cal(this.id , this.value)" id="bracket_left" value=")" style="width: 50px;height: 30px ;position: absolute;   top: 35%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: 175px;color: white;background-color: black;">)</button></th>
+</tr>
+<tr>
+<td><button onclick="cal(this.id , this.value)" id="shift" value="" style="position: absolute;   top: 40%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: 0px;width: 50px;height: 30px;color: white; border-top-left-radius:60px ;border-top-right-radius: 60px ;border-bottom-left-radius:60px  ;border-bottom-right-radius:60px ;background-color: silver;" >shift</button></td>
+<th><button onclick="cal(this.id , this.value)" id="ALPHA" value="" style="position: absolute;   top: 40%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: -35px;width: 55px;height: 30px;color: white;border-top-left-radius:15px ;border-bottom-left-radius:15px ;border-top-right-radius:15px ;border-bottom-right-radius:15px ;background-color: silver;" >ALPHA</button></th>
+<th><button style="position: absolute;   top: 40%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: 95px;width: 60px;height: 35px;color: white; border-top-left-radius:15px ;border-bottom-left-radius:15px ;border-top-right-radius:15px ;border-bottom-right-radius:15px ;background-color: silver;">MENU SETUP</button></th>
+<th><button onclick="cal(this.id , this.value)" id="On" value="" style="position: absolute;   top: 40%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: 110px;width: 50px;height: 30px;color: white;border-top-left-radius:15px ;border-bottom-left-radius:15px ;border-top-right-radius:15px ;border-bottom-right-radius:15px ;background-color: silver;">ON</button></th>
+<th><button style="position: absolute;   top: 40%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: -160px;width: 50px;height: 30px;color: white;background-color: silver;">&#8249;</button></th>
+<th><button style="position: absolute;   top: 40%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: -170px;width: 50px;height: 30px;color: white;background-color: silver;">&#8250;</button></th>
+
+</tr>
+<tr>
+<td><button style="position: absolute;   top: 45%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: 0px;width: 50px;height: 30px;color: white;background-color: black;" >OPTN</button></td>
+<th><button style="position: absolute;   top: 45%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: -30px;width: 50px;height: 30px;color: white;background-color: black;">CALC</button></th>
+<th><button style="position: absolute;   top: 42%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: 7px;width: 30px;height: 30px;color: white;background-color: silver; transform: rotate(270deg);">&#8249;</button></th>
+<th><button style="position: absolute;   top: 45%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: 35px;width: 50px;height: 30px;color: white;background-color: black;">?</button></th>
+<th><button style="position: absolute;   top: 45%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: 45px;width: 50px;height: 30px;color: white;background-color: black;">x</button></th>
+</tr>
+<tr>
+<td><button onclick="cal(this.id , this.value)" id="fraction" value="" style="position: absolute;   top: 50%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: 0px;width: 50px;height: 30px;color: white;background-color: black;">&#8532;</button></td>
+<th><button onclick="cal(this.id , this.value)" id="Root" value=" Root" style="position: absolute;   top: 50%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: -30px;width: 50px;height: 30px;color: white;background-color: black;">&radic;</button></th>
+<th><button onclick="cal(this.id , this.value)" id="POWER" value="**" style="position: absolute;   top: 50%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: -30px;width: 50px;height: 30px;color: white;background-color: black;">x&#9643;</button></th>
+<th><button onclick="cal(this.id , this.value)" id="POWER_2" value="**2" style="position: absolute;   top: 50%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: -40px;width: 50px;height: 30px;color: white;background-color: black;">x&#178;</button></th>
+<th><button onclick="cal(this.id , this.value)" id="LOG" value="Log" style="position: absolute;   top: 50%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: -30px;width: 50px;height: 30px;color: white;background-color: black;">Log</button></th>
+<th><button onclick="cal(this.id , this.value)" id="ln" value="ln" style="position: absolute;   top: 50%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: -21px;width: 50px;height: 30px;color: white;background-color: black;">In</button></th>
+</tr>
+<tr>
+<td><button onclick="cal(this.id , this.value)" id="neg" value="" style="position: absolute;   top: 55%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left : 0px;width: 50px;height: 30px;color: white;background-color: black;">(-)</button></td>
+<th><button style="position: absolute;   top: 55%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: -30px;width: 50px;height: 30px;color: white;background-color: black;">'</button></th>
+<th><button onclick="cal(this.id , this.value)" id="index_neg" value="**-1" style="position: absolute;   top: 55%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: -30px;width: 50px;height: 30px;color: white;background-color: black;">X(-1)</button></th>
+<th><button onclick="cal(this.id , this.value)" id="Sin" value="sin" style="position: absolute;   top: 55%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: -40px;width: 50px;height: 30px;color: white;background-color: black;">Sin</button></th>
+<th><button onclick="cal(this.id , this.value)" id="Cos" value="cos" style="position: absolute;   top: 55%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: -30px;width: 50px;height: 30px;color: white;background-color: black;">Cos</button></th>
+<th><button onclick="cal(this.id , this.value)" id="Tan" value="tan" style="position: absolute;   top: 55%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: -21px;width: 50px;height: 30px;color: white;background-color: black;">Tan</button></th>
+</tr>
+<tr>
+<td><button onclick="cal(this.id , this.value)"  id="num_7" value="7" style="width: 60px;height: 60px;position: absolute;   top: 65%; -ms-transform: translateY(30%); transform: translateY(-70%);color: black; ">7</button></td>
+<th><button onclick="cal(this.id , this.value)"  id="num_8" value="8" style="width: 60px;height: 60px;position: absolute;   top: 65%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: -15px;color: black; " >8</button></th>
+<th><button onclick="cal(this.id , this.value)"  id="num_9" value="9" style="width: 60px;height: 60px;position: absolute;   top: 65%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: 5px;color: black; ">9</button></th>
+<th><button onclick="cal(this.id , this.value)"  id="DEL" value="DEL" style="width: 60px;height: 60px;position: absolute;   top: 65%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: 20px; background-color: aqua; ">DEL</button></th>
+<th><button onclick="cal(this.id , this.value)"  id="ON" value="AC" style="width: 60px;height: 60px;position: absolute;   top: 65%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left:37px;background-color: aqua;  ">AC</button></th>
+</tr>
+<tr>
+<td><button onclick="cal(this.id , this.value)"  id="num_4" value="4" style="width: 60px;height: 60px;position: absolute;   top: 75%; -ms-transform: translateY(30%); transform: translateY(-70%);color: black; ">4</button></td>
+<th><button onclick="cal(this.id , this.value)"  id="num_5" value="5" style="width: 60px;height: 60px;position: absolute;   top: 75%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: -15px;">5</button></th>
+<th><button onclick="cal(this.id , this.value)"  id="num_6" value="6" style="width: 60px;height: 60px;position: absolute;   top: 75%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: 5px; ">6</button></th>
+<th><button onclick="cal(this.id , this.value)"  id="operation_multiply" value="X" style="width: 60px;height: 60px;position: absolute;   top: 75%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: 20px; ">X</button></th>
+<th><button onclick="cal(this.id , this.value)"  id="operation_div" value="/" style="width: 60px;height: 60px;position: absolute;   top: 75%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left:37px; ">&#247;</button></th>
+</tr>
+<tr>
+<td><button onclick="cal(this.id , this.value)"  id="num_1" value="1" style="width: 60px;height: 60px;position: absolute;   top: 85%; -ms-transform: translateY(30%); transform: translateY(-70%);color: black;">1</button></td>
+<th><button onclick="cal(this.id , this.value)"  id="num_2" value="2" style="width: 60px;height: 60px;position: absolute;   top: 85%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: -15px;color: black;border:solid  black;">2</button></th>
+<th><button onclick="cal(this.id , this.value)"  id="num_3" value="3" style="width: 60px;height: 60px;position: absolute;   top: 85%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: 5px;color: black;border:solid  black;">3</button></th>
+<th><button onclick="cal(this.id , this.value)"  id="operation_add" value="+" style="width: 60px;height: 60px;position: absolute;   top: 85%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: 20px;color: black;border:solid  black;">+</button></th>
+<th><button onclick="cal(this.id , this.value)"  id="operation_sub" value="-" style="width: 60px;height: 60px;position: absolute;   top: 85%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left:37px;color: black;border:solid  black;">-</button></th>
+</tr>
+<tr>
+<td><button onclick="cal(this.id , this.value)"  id="num_0" value="0" style='height: 60px;width: 60px;position: absolute;   top: 95%; -ms-transform: translateY(30%); transform: translateY(-70%);color: black;border:solid  black;'>0</button></td>
+<th><button onclick="cal(this.id , this.value)"  id="decimal" value="." style= 'height: 60px;width: 60px;position: absolute;   top: 95%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: -15px;color: black;'>.</button></th>
+<th><button onclick="cal(this.id , this.value)"  id="X10x" value="" style= 'height: 60px;width: 60px;position: absolute;   top: 95%; -ms-transform: translateY(30%); transform: translateY(-70%);margin-left: 5px;color: black;'>X10x</button></th>
+<th><button onclick="cal(this.id , this.value)"  id="Ans" value="" style= 'height: 60px;width: 60px; position: absolute;   top: 95%; -ms-transform: translateY(30%); transform: translateY(-70%); margin-left: 20px;color: black;'>Ans</button></th>
+<th><button onclick="cal(this.id , this.value)"  id="operation_equal" value="=" onclick="" style= 'height: 60px;width: 60px; position: absolute;   top: 95%; -ms-transform: translateY(30%); transform: translateY(-70%); margin-left:37px;color: black;'>=</button></th>
+</tr>
+<tr><td><hr style="position: absolute;   top: 100%; -ms-transform: translateY(30%); transform: translateY(-70%); width: 390px; color: white"></td></tr>
+</table>
+</html>
+</body>
