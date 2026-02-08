@@ -7,4 +7,21 @@ It performs basic arithmetic operations and demonstrates user interaction and dy
 - more feature includes Log , in ,root,powers , negatives ,negative powers , 
 - Clean button UI
 - Works in modern browsers
+## How to Use
+1. Clone the repository:
+
+2. Open `calculator_model2.html` in a browser.
+
+## Tech Used
+- HTML
+- CSS
+- JavaScript
+
+## What I Learned
+- DOM manipulation and event handling in JavaScript
+- Structuring interactive front-end code
+- Project organisation and version control with Git
+
+
+
 ## Note that features such as arrows , shift,menu shift  , on are just ul and dont do anything , but will be updated in the future.
